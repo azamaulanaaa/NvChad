@@ -50,6 +50,7 @@ local plugins = {
   },
   { -- enable formatter
     "mhartington/formatter.nvim",
+    lazy = false,
     opts = function(LazyPlugin, opts)
       return {
         filetype = {
