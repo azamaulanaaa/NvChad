@@ -50,35 +50,36 @@ local plugins = {
   },
   { -- enable formatter
     "mhartington/formatter.nvim",
-    lazy = false,
-    opts = {
-      filetype = {
-        lua = {
-          require("formatter.filetypes.lua").stylua,
+    opts = function(LazyPlugin, opts)
+      return {
+        filetype = {
+          lua = {
+            require("formatter.filetypes.lua").stylua,
+          },
+          rust = {
+            require("formatter.filetypes.rust").rustfmt,
+          },
+          javascript = {
+            require("formatter.filetypes.javascript").prettierd,
+          },
+          javascriptreact = {
+            require("formatter.filetypes.javascriptreact").prettierd,
+          },
+          json = {
+            require("formatter.filetypes.json").prettierd,
+          },
+          typescript = {
+            require("formatter.filetypes.typescript").prettierd,
+          },
+          typescriptreact = {
+            require("formatter.filetypes.typescriptreact").prettierd,
+          },
+          ["*"] = {
+            require("formatter.filetypes.any").remove_trailling_whitespace,
+          },
         },
-        rust = {
-          require("formatter.filetypes.rust").rustfmt,
-        },
-        javascript = {
-          require("formatter.filetypes.javascript").prettierd,
-        },
-        javascriptreact = {
-          require("formatter.filetypes.javascriptreact").prettierd,
-        },
-        json = {
-          require("formatter.filetypes.json").prettierd,
-        },
-        typescript = {
-          require("formatter.filetypes.typescript").prettierd,
-        },
-        typescriptreact = {
-          require("formatter.filetypes.typescriptreact").prettierd,
-        },
-        ["*"] = {
-          require("formatter.filetypes.any").remove_trailling_whitespace,
-        },
-      },
-    },
+      }
+    end,
     config = function(LazyPlugin, opts)
       require("formatter").setup(opts)
 
