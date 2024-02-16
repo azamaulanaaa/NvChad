@@ -1,5 +1,6 @@
 local g = vim.g
 local o = vim.o
+local go = vim.go
 
 g.mapleader = "\\" -- reset leader to \
 
@@ -15,3 +16,5 @@ o.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
 o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 o.shellquote = ""
 o.shellxquote = ""
+
+go.guifont = "FiraCode Nerd Font:h12"
