@@ -1,6 +1,7 @@
 local g = vim.g
 local o = vim.o
 local go = vim.go
+local wo = vim.wo
 
 g.mapleader = "\\" -- reset leader to \
 
@@ -18,3 +19,5 @@ o.shellquote = ""
 o.shellxquote = ""
 
 go.guifont = "FiraCode Nerd Font:h12"
+
+wo.relativenumber = true
