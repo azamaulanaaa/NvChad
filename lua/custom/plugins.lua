@@ -53,53 +53,26 @@ local plugins = {
     end,
   },
   { -- enable formatter
-    "mhartington/formatter.nvim",
-    lazy = false,
-    opts = function(LazyPlugin, opts)
-      return {
-        filetype = {
-          lua = {
-            require("formatter.filetypes.lua").stylua,
-          },
-          rust = {
-            require("formatter.filetypes.rust").rustfmt,
-          },
-          javascript = {
-            require("formatter.filetypes.javascript").prettierd,
-          },
-          javascriptreact = {
-            require("formatter.filetypes.javascriptreact").prettierd,
-          },
-          json = {
-            require("formatter.filetypes.json").prettierd,
-          },
-          typescript = {
-            require("formatter.filetypes.typescript").prettierd,
-          },
-          typescriptreact = {
-            require("formatter.filetypes.typescriptreact").prettierd,
-          },
-          ["*"] = {
-            require("formatter.filetypes.any").remove_trailling_whitespace,
-          },
-        },
-      }
-    end,
-    config = function(LazyPlugin, opts)
-      require("formatter").setup(opts)
-
-      local FormatAutogroup = vim.api.nvim_create_augroup("FormatAutogroup", {
-        clear = true,
-      })
-
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        group = FormatAutogroup,
-        pattern = { "*" },
-        callback = function(ev)
-          vim.api.nvim_command "FormatWrite"
-        end,
-      })
-    end,
+    "stevearc/conform.nvim",
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    opts = {
+      formatters_by_ft = {
+        lua = { "stylua" },
+        python = { { "autopep8", "isort", "black" } },
+        javascript = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
+        javascriptreact = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
+        html = { { "prettierd", "prettier" } },
+        css = { { "prettierd", "prettier" } },
+        json = { { "prettierd", "prettier" } },
+        rust = { "rustfmt" },
+        sql = { "sqlfmt" },
+        ["_"] = { "trim_whitespace" },
+      },
+      format_on_save = { timeout_ms = 500, lsp_fallback = true },
+    },
   },
   { -- neovim available for firefox/chrome
     "glacambre/firenvim",
