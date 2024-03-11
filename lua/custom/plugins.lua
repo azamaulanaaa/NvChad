@@ -1,21 +1,25 @@
 local plugins = {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      auto_install = true,
+    },
+  },
   { -- implement lsp
     "neovim/nvim-lspconfig",
     config = function(LazyPlugin, opts)
       local lspconfig = require "lspconfig"
-      local config = require "plugins.configs.lspconfig"
+      local default_config = require "plugins.configs.lspconfig"
       local servers = {
-        "rust_analyzer",
-        "html",
-        "pyright",
-        "tsserver",
+        rust_analyzer = {},
+        html = {},
+        pyright = {},
+        tsserver = {},
+        sqls = {},
       }
 
-      for _, server in ipairs(servers) do
-        lspconfig[server].setup {
-          on_attach = config.on_attach,
-          capabilities = config.capabilities,
-        }
+      for server, config in pairs(servers) do
+        lspconfig[server].setup(vim.tbl_deep_extend("force", default_config, config))
       end
     end,
   },
