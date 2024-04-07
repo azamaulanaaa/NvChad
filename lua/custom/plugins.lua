@@ -17,7 +17,6 @@ local plugins = {
       }
 
       local servers = {
-        rust_analyzer = {},
         html = {},
         pyright = {},
         tsserver = {},
@@ -95,6 +94,11 @@ local plugins = {
         },
       }
     end,
+  },
+  { -- special tool for rust lsp
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
   },
 }
 
