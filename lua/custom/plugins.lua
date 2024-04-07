@@ -9,7 +9,13 @@ local plugins = {
     "neovim/nvim-lspconfig",
     config = function(LazyPlugin, opts)
       local lspconfig = require "lspconfig"
-      local default_config = require "plugins.configs.lspconfig"
+
+      local config = require "plugins.configs.lspconfig"
+      local default_config = {
+        on_attach = config.on_attach,
+        capabilites = config.capabilities,
+      }
+
       local servers = {
         rust_analyzer = {},
         html = {},
