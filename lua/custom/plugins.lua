@@ -100,6 +100,24 @@ local plugins = {
     version = "^4",
     ft = { "rust" },
   },
+  {
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      local lint = require "lint"
+
+      lint.linters_by_ft = {
+        javascript = { "oxlint" },
+        typescript = { "oxlint" },
+        javascriptreact = { "oxlint" },
+        typescriptreact = { "oxlint" },
+        python = { "ruff" },
+      }
+    end,
+  },
 }
 
 return plugins
