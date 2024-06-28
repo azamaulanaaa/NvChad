@@ -81,22 +81,6 @@ local plugins = {
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },
   },
-  { -- neovim available for firefox/chrome
-    "glacambre/firenvim",
-    lazy = not vim.g.started_by_firenvim,
-    build = function()
-      vim.fn["firenvim#install"](0)
-    end,
-    config = function()
-      vim.g.firenvim_config = {
-        localSettings = {
-          [".*"] = {
-            takeover = "never",
-          },
-        },
-      }
-    end,
-  },
   { -- special tool for rust lsp
     "mrcjkb/rustaceanvim",
     version = "^4",
