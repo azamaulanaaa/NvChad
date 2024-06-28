@@ -120,6 +120,16 @@ local plugins = {
       }
     end,
   },
+  { -- code outline
+    "stevearc/aerial.nvim",
+    lazy = false,
+    opts = {
+      filter_kind = false,
+      layout = {
+        width = 30,
+      },
+    },
+  },
 }
 
 return plugins

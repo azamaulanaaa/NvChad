@@ -12,4 +12,10 @@ M.nvimtree = {
   },
 }
 
+M.aerial = {
+  n = {
+    ["<C-a>"] = { "<cmd> AerialToggle <CR>", "Toggle aerial" },
+  },
+}
+
 return M
