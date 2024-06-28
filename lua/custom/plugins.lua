@@ -21,6 +21,7 @@ local plugins = {
         pyright = {},
         tsserver = {},
         sqls = {},
+        graphql = {},
       }
 
       for server, config in pairs(servers) do
@@ -74,6 +75,7 @@ local plugins = {
         json = { { "prettier", "prettierd" } },
         rust = { "rustfmt" },
         sql = { "sqlfmt" },
+        graphql = { { "prettier", "prettierd" } },
         ["_"] = { "trim_whitespace" },
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
