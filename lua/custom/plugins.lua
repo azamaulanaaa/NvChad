@@ -22,6 +22,7 @@ local plugins = {
         ts_ls = {},
         sqls = {},
         graphql = {},
+        rust_analyzer = {},
       }
 
       for server, config in pairs(servers) do
@@ -80,11 +81,6 @@ local plugins = {
       },
       format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },
-  },
-  { -- special tool for rust lsp
-    "mrcjkb/rustaceanvim",
-    version = "^4",
-    ft = { "rust" },
   },
   {
     "mfussenegger/nvim-lint",
