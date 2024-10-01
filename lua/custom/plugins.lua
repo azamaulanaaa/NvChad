@@ -19,7 +19,7 @@ local plugins = {
       local servers = {
         html = {},
         pyright = {},
-        tsserver = {},
+        ts_ls = {},
         sqls = {},
         graphql = {},
       }
