@@ -23,6 +23,8 @@ local plugins = {
         sqls = {},
         graphql = {},
         rust_analyzer = {},
+        clangd = {},
+        jsonls = {},
       }
 
       for server, config in pairs(servers) do
