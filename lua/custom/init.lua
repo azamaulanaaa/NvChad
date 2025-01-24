@@ -18,6 +18,8 @@ o.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 o.shellquote = ""
 o.shellxquote = ""
 
+o.shadafile = "NONE"
+
 go.guifont = "FiraCode Nerd Font:h12"
 
 wo.relativenumber = true
