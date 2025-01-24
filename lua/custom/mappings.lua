@@ -18,4 +18,10 @@ M.aerial = {
   },
 }
 
+M.todo = {
+  n = {
+    ["<leader>tt"] = { "<cmd> TodoQuickFix keyword=TODO,FIX <CR>", "Toggle todo telescope" }
+  }
+}
+
 return M

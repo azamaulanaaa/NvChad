@@ -138,6 +138,11 @@ local plugins = {
       },
     },
   },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
+    opts = {},
 }
 
 return plugins
