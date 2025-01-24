@@ -143,6 +143,25 @@ local plugins = {
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
     opts = {},
+  },
+  {
+    "zbirenbaum/nvterm",
+    opts = {
+      terminals = {
+        type_opts = {
+          float = {
+            row = 0.05,
+            col = 0.1,
+            height = 0.8,
+            width = 0.8,
+          },
+        },
+      },
+      behavior = {
+        auto_insert = false,
+      },
+    },
+  },
 }
 
 return plugins
