@@ -120,10 +120,10 @@ local plugins = {
       local lint = require "lint"
 
       lint.linters_by_ft = {
-        javascript = { "oxlint" },
-        typescript = { "oxlint" },
-        javascriptreact = { "oxlint" },
-        typescriptreact = { "oxlint" },
+        javascript = { "deno", "oxlint" },
+        typescript = { "deno", "oxlint" },
+        javascriptreact = { "deno", "oxlint" },
+        typescriptreact = { "deno", "oxlint" },
         python = { "ruff" },
       }
     end,
