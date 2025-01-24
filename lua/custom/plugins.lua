@@ -13,18 +13,44 @@ local plugins = {
       local config = require "plugins.configs.lspconfig"
       local default_config = {
         on_attach = config.on_attach,
-        capabilites = config.capabilities,
+        capabilities = config.capabilities,
       }
 
       local servers = {
         html = {},
         pyright = {},
-        ts_ls = {},
+        ts_ls = {
+          on_attach = function(client, bufnr)
+            local has_package_json = vim.fn.filereadable(vim.fn.getcwd() .. "/package.json") == 1
+            local has_deno_json = vim.fn.filereadable(vim.fn.getcwd() .. "/deno.json") == 1
+
+            if not has_package_json or has_deno_json then
+              client.stop()
+              return
+            end
+
+            config.on_attach(client, bufnr)
+          end,
+        },
         sqls = {},
         graphql = {},
         rust_analyzer = {},
         clangd = {},
         jsonls = {},
+        tailwindcss = {},
+        denols = {
+          on_attach = function(client, bufnr)
+            local has_package_json = vim.fn.filereadable(vim.fn.getcwd() .. "/package.json") == 1
+            local has_deno_json = vim.fn.filereadable(vim.fn.getcwd() .. "/deno.json") == 1
+
+            if has_package_json and not has_deno_json then
+              client.stop()
+              return
+            end
+
+            config.on_attach(client, bufnr)
+          end,
+        },
       }
 
       for server, config in pairs(servers) do
