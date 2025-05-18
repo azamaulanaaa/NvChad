@@ -56,6 +56,8 @@ local plugins = {
         },
         gopls = {},
         bashls = {},
+        docker_compose_language_service = {},
+        dockerls = {},
       }
 
       for server, config in pairs(servers) do
