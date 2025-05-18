@@ -54,6 +54,7 @@ local plugins = {
             config.on_attach(client, bufnr)
           end,
         },
+        gopls = {},
       }
 
       for server, config in pairs(servers) do
@@ -108,6 +109,7 @@ local plugins = {
         rust = { "rustfmt" },
         sql = { "sqlfmt" },
         graphql = { "prettierd", "prettier", stop_after_first = true },
+        go = { "gofmt" },
         ["_"] = { "trim_whitespace" },
       },
       format_on_save = { timeout_ms = 3000, lsp_format = "fallback" },
