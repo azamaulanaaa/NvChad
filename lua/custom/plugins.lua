@@ -55,6 +55,7 @@ local plugins = {
           end,
         },
         gopls = {},
+        bashls = {},
       }
 
       for server, config in pairs(servers) do
@@ -110,6 +111,7 @@ local plugins = {
         sql = { "sqlfmt" },
         graphql = { "prettierd", "prettier", stop_after_first = true },
         go = { "gofmt" },
+        bash = { "beautysh" },
         ["_"] = { "trim_whitespace" },
       },
       format_on_save = { timeout_ms = 3000, lsp_format = "fallback" },
