@@ -3,6 +3,9 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       auto_install = true,
+      incremental_selection = {
+        enable = true,
+      },
     },
   },
   { -- implement lsp
