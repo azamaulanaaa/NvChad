@@ -20,6 +20,8 @@ o.shellxquote = ""
 
 o.shadafile = "NONE"
 
+o.fileformats = "unix"
+
 go.guifont = "FiraCode Nerd Font:h12"
 
 wo.relativenumber = true
