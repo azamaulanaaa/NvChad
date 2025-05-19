@@ -113,7 +113,7 @@ local plugins = {
         sql = { "sqlfmt" },
         graphql = { "prettierd", "prettier", stop_after_first = true },
         go = { "gofmt" },
-        bash = { "beautysh" },
+        sh = { "beautysh" },
         ["_"] = { "trim_whitespace" },
       },
       format_on_save = { timeout_ms = 3000, lsp_format = "fallback" },
